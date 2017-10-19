@@ -1,5 +1,4 @@
 ﻿using NerdGolfTracker;
-using Microsoft.VisualStudio.QualityTools.UnitTestFramework;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -18,23 +17,8 @@ namespace UnitTests
         [TestMethod]
         public void InkrementiertSchlagzahlEinmal()
         {
-            _scorecard.ErhoeheAnzahlSchlaege();
-            Assert.AreEqual(_scorecard.AnzahlSchlaege, 1);
-        }
-
-        [TestMethod]
-        public void InkrementiertSchlagzahlMehrmals()
-        {
-            _scorecard.ErhoeheAnzahlSchlaege();
-            _scorecard.ErhoeheAnzahlSchlaege();
-            Assert.AreEqual(_scorecard.AnzahlSchlaege, 2);
-        }
-
-        [TestMethod]
-        public void ErhoehtLochnummerBeiLochwechsel()
-        {
-            _scorecard.SchliesseLochAb();
-            Assert.AreEqual(_scorecard.Lochnummer, 2);
+            Assert.AreEqual(_scorecard.AnzahlSchlaege, 42);
+            Assert.AreEqual(_scorecard.Lochnummer, 0);
         }
     }
 }

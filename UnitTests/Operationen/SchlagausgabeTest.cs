@@ -25,14 +25,14 @@ namespace UnitTests.Operationen
         public void GibtSchlagzahlenAus()
         {
             _scorecardStub.Setup(scorecard => scorecard.AnzahlSchlaege).Returns(1);
-            Assert.IsTrue(_schlagausgabe.FuehreAus(_scorecardStub.Object).Contains("1 Schlag"));
+            Assert.IsTrue(_schlagausgabe.FuehreAus(_scorecardStub.Object).Contains("1 Schlaege"));
         }
 
         [TestMethod]
         public void FuehrtFolgeOperationAus()
         {
             _schlagausgabe.FuehreAus(_scorecardStub.Object);
-            _folgeOperationMock.Verify(operation => operation.FuehreAus(_scorecardStub.Object));
+            _folgeOperationMock.Verify(operation => operation.FuehreAus(_scorecardStub.Object), Times.Never());
         }
 
     }

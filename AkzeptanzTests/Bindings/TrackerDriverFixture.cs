@@ -18,7 +18,7 @@ namespace AkzeptanzTests.Bindings
             _driver.Starte();
         }
 
-        [When(@"ich den NerdGolfTracker starte")]
+        [Given(@"ich habe den Nerd-Golf-Tracker gestartet")]
         public void StarteTracker()
         {
             // Nur da, um Szenario sprechend zu schreiben.
