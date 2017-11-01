@@ -5,15 +5,17 @@ namespace NerdGolfTracker
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            var tracker = new Tracker(new EinfacherInterpreter(), new Lochbegruessung(new Lochausgabe()));
+            var startoperation = new Folgeoperation(new Lochbegruessung(), new Lochausgabe());
+            var tracker = new Tracker(new EinfacherInterpreter(), startoperation, new EinfacheScorecard());
             Console.WriteLine(tracker.Starte());
-            while (true)
+            while (!tracker.Beendet)
             {
                 var befehl = Console.ReadLine();
                 Console.WriteLine(tracker.ReagiereAuf(befehl));                
             }
+            Console.ReadLine();            
         }
     }
 }

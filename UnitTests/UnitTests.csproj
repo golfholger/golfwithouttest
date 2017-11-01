@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="EinfacheScorecardTest.cs" />
     <Compile Include="Operationen\SchlagausgabeTest.cs" />
+    <Compile Include="Operationen\SchlagTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

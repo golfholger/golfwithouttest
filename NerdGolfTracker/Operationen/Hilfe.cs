@@ -1,21 +1,34 @@
-using System.Collections.Generic;
-using NerdGolfTracker.Befehle;
+using System;
 
 namespace NerdGolfTracker.Operationen
 {
-    public class Hilfe : Operation
+    public class Hilfe : IOperation
     {
-        public string FuehreAus(Scorecard scorecard)
+        public string FuehreAus(IScorecard scorecard, ITracker tracker)
         {
-            var hilfstexte = new AlleBefehle().Befehle().ConvertAll(HilfstextFuer);
-            return "Ich helfe dir beim Fuehren der Scorecard. Ich reagiere auf folgende Befehle: " +
-                   string.Join(System.Environment.NewLine, hilfstexte)
-                   + ".";
+            var hilfstexte = Konfiguration.Befehle.ConvertAll(HilfstextFuer);
+            return "Ich helfe dir beim Fuehren der Scorecard. Ich reagiere auf folgende Befehle: " + Environment.NewLine +
+                   string.Join(Environment.NewLine, hilfstexte);            
         }
 
-        private string HilfstextFuer(Befehl befehl)
+        private string HilfstextFuer(IBefehl befehl)
         {
-            return $" * \"{befehl.Kommando}\" {befehl.Erklaerung}";
+            var kommandoText = befehl.Kommando;
+
+            // Alias im Kommando suchen und mit [] wrappen
+            var aliasPosition = kommandoText.IndexOf(befehl.Alias, StringComparison.InvariantCultureIgnoreCase);
+            var textBisAlias = kommandoText.Substring(0, aliasPosition);
+            var textNachAlias = kommandoText.Substring(aliasPosition + befehl.Alias.Length);            
+            
+            var result = $" * \"{textBisAlias}[{befehl.Alias}]{textNachAlias}\" {befehl.Erklaerung}";
+
+            // Default Befehl kennzeichnen
+            if (befehl.Kommando == Konfiguration.DefaultBefehl)
+            {
+                result += " (default bei ENTER)";
+            }
+
+            return result;
         }
     }
 }

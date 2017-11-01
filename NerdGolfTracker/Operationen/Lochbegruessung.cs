@@ -1,17 +1,10 @@
 namespace NerdGolfTracker.Operationen
 {
-    public class Lochbegruessung : Operation
+    public class Lochbegruessung : IOperation
     {
-        private readonly Operation _folgeOperation;
-
-        public Lochbegruessung(Operation folgeOperation)
+        public string FuehreAus(IScorecard scorecard, ITracker tracker)
         {
-            _folgeOperation = folgeOperation;
-        }
-
-        public string FuehreAus(Scorecard scorecard)
-        {
-            return $"Du bist jetzt {_folgeOperation.FuehreAus(scorecard)}";
+            return "Du bist jetzt ";
         }
     }
 }

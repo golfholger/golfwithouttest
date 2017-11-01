@@ -1,12 +1,12 @@
-﻿using NerdGolfTracker;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NerdGolfTracker;
 
 namespace UnitTests
 {
     [TestClass]
     public class EinfacheScorecardTest
     {
-        private Scorecard _scorecard;
+        private IScorecard _scorecard;
 
         [TestInitialize]
         public void InitialisiereScorecard()

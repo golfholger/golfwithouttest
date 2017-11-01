@@ -1,18 +1,11 @@
 namespace NerdGolfTracker.Operationen
 {
-    public class Schlag : Operation
+    public class Schlag : IOperation
     {
-        private readonly Operation _folgeOperation;
-
-        public Schlag(Operation folgeOperation)
-        {
-            _folgeOperation = folgeOperation;
-        }
-
-        public string FuehreAus(Scorecard scorecard)
+        public string FuehreAus(IScorecard scorecard, ITracker tracker)
         {
             scorecard.ErhoeheAnzahlSchlaege();
-            return _folgeOperation.FuehreAus(scorecard);
+            return "";
         }
     }
 }

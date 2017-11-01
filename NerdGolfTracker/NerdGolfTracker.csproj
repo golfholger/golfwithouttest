@@ -35,28 +35,35 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Befehl.cs" />
-    <Compile Include="Befehle\HilfeBefehl.cs" />
-    <Compile Include="Befehle\LochwechselBefehl.cs" />
-    <Compile Include="Befehle\SchlagBefehl.cs" />
-    <Compile Include="AlleBefehle.cs" />
+    <Compile Include="Formatter.cs" />
+    <Compile Include="IBefehl.cs" />
+    <Compile Include="Konfiguration.cs" />
     <Compile Include="EinfacherInterpreter.cs" />
     <Compile Include="EinfacheScorecard.cs" />
-    <Compile Include="Interpreter.cs" />
-    <Compile Include="Operation.cs" />
+    <Compile Include="IInterpreter.cs" />
+    <Compile Include="IOperation.cs" />
+    <Compile Include="ITracker.cs" />
+    <Compile Include="Operationen\Folgeoperation.cs" />
+    <Compile Include="Loch.cs" />
+    <Compile Include="Operationen\Undo.cs" />
+    <Compile Include="Operationen\FalscheEingabe.cs" />
+    <Compile Include="Operationen\Beenden.cs" />
     <Compile Include="Operationen\Hilfe.cs" />
     <Compile Include="Operationen\Lochausgabe.cs" />
     <Compile Include="Operationen\Lochbegruessung.cs" />
     <Compile Include="Operationen\Lochwechsel.cs" />
     <Compile Include="Operationen\Schlag.cs" />
+    <Compile Include="Operationen\Zwischenergebnisausgabe.cs" />
     <Compile Include="Operationen\Schlagausgabe.cs" />
     <Compile Include="Tracker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Scorecard.cs" />
+    <Compile Include="IScorecard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

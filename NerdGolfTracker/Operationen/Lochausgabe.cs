@@ -1,10 +1,10 @@
 namespace NerdGolfTracker.Operationen
 {
-    public class Lochausgabe : Operation
+    public class Lochausgabe : IOperation
     {
-        public string FuehreAus(Scorecard scorecard)
+        public string FuehreAus(IScorecard scorecard, ITracker tracker)
         {
-            return $"auf dem {scorecard.Lochnummer}.Loch.";
+            return $"auf dem {scorecard.Lochnummer}. Loch.";
         }
     }
 }
